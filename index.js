@@ -2,6 +2,7 @@ const express = require('express')
 const axios = require('axios')
 var https = require('https');
 var qs = require('querystring');
+const cros = require('cors')
 
 const param = qs.stringify({
     'grant_type': 'client_credentials',
@@ -10,6 +11,7 @@ const param = qs.stringify({
 });
 
 const app = express()
+app.use(cros())
 app.listen(12306, () => {
     console.log('express server running')
 })
